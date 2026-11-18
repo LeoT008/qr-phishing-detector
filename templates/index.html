@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QR Guard — URL & QR checker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar"><div class="container nav"><div class="brand"><span class="brand-icon">▦</span><span>QR Guard <small>URL & QR CHECKER</small></span></div><span class="local"><span></span> Local analysis</span></div></header>
+<main class="container">
+  <div class="intro"><span class="eyebrow">SCAN WITH MORE CONFIDENCE</span><h1>Know where your<br><span>QR code leads.</span></h1><p>Check a link or upload a QR code to examine its destination before you visit it.</p></div>
+  <div class="layout"><section class="card checker"><div class="card-heading"><div><h2>Check a destination</h2><p>Enter a URL or upload a QR code image.</p></div><span class="icon-box">⌕</span></div>
+    <form method="post" enctype="multipart/form-data">
+      <label for="url">Website URL</label><input id="url" name="url" type="text" value="{{ url }}" placeholder="https://example.com" autocomplete="url">
+      <div class="divider"><span>OR UPLOAD AN IMAGE</span></div>
+      <label class="upload" for="qr_image"><span class="upload-icon">▦</span><strong id="file-label">Choose a QR code image</strong><span>PNG or JPEG · up to 5 MB</span><input id="qr_image" name="qr_image" type="file" accept="image/png,image/jpeg"></label>
+      <button type="submit">Analyze destination</button>
+      <p class="footnote"><span>◈</span> The destination is never opened by this checker.</p>
+    </form>
+    {% if error %}<div class="alert" role="alert"><strong>Unable to check</strong><p>{{ error }}</p></div>{% endif %}
+    {% if results %}<section class="results" aria-live="polite"><div class="result-heading"><div><span class="eyebrow">ANALYSIS COMPLETE</span><h2>Model predictions</h2></div><span class="badge">Experimental</span></div><span class="result-label">CHECKED DESTINATION</span><p class="address">{{ checked_url }}</p><div class="result-list">{% for result in results %}<div class="result-row"><div><strong>{{ result.name }}</strong><span>Phishing score: {{ result.score }}</span></div><span class="verdict {{ 'danger' if result.label == 'PHISHING' else 'safe' }}">{{ result.label }}</span></div>{% endfor %}</div><p class="disclaimer">These predictions can be wrong. Treat unfamiliar links with caution.</p></section>{% endif %}
+  </section><aside class="sidebar"><div class="side-card"><span class="side-icon">✦</span><h3>A closer look, before you click.</h3><p>QR Guard reads the address in your image and checks its URL characteristics using experimental models.</p><div class="side-divider"></div><div class="step"><span>01</span><div><strong>Share a destination</strong><p>Paste a link or choose a QR image.</p></div></div><div class="step"><span>02</span><div><strong>Review the predictions</strong><p>Compare each model’s assessment.</p></div></div><div class="step"><span>03</span><div><strong>Decide with care</strong><p>No model can guarantee a link is safe.</p></div></div></div><p class="privacy">◈ &nbsp; Images are processed locally on this computer.</p></aside></div>
+</main><footer class="container">QR Guard <span>Experimental phishing detection</span></footer>
+<script>document.getElementById('qr_image').addEventListener('change', function(){document.getElementById('file-label').textContent = this.files.length ? this.files[0].name : 'Choose a QR code image';});</script>
+</body></html>

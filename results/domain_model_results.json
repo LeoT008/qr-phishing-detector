@@ -1,0 +1,36 @@
+{
+  "validation": {
+    "rows": 7618,
+    "accuracy": 0.9604883171436073,
+    "phishing_recall": 0.9886721208307111,
+    "legitimate_false_alarm_rate": 0.059684684684684686,
+    "phishing_roc_auc": 0.9967825676526118,
+    "confusion_matrix_actual_rows_predicted_columns_0_1": [
+      [
+        3142,
+        36
+      ],
+      [
+        265,
+        4175
+      ]
+    ]
+  },
+  "pilot_test": {
+    "rows": 6478,
+    "accuracy": 0.894566224143254,
+    "phishing_recall": 0.9821220365332297,
+    "legitimate_false_alarm_rate": 0.16312419974391806,
+    "phishing_roc_auc": 0.9908902306180651,
+    "confusion_matrix_actual_rows_predicted_columns_0_1": [
+      [
+        2527,
+        46
+      ],
+      [
+        637,
+        3268
+      ]
+    ]
+  }
+}

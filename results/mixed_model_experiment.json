@@ -1,0 +1,39 @@
+{
+  "training_rows": 163452,
+  "original_training_rows_after_group_filter": 128611,
+  "external_training_rows_after_group_filter": 34841,
+  "original_test_rows": 47074,
+  "external_validation_rows": 7618,
+  "external_pilot_rows": 6478,
+  "selection_metric": "validation phishing F1",
+  "selected_model": "Mixed gradient boosting",
+  "validation": {
+    "Mixed random forest": {
+      "rows": 7618,
+      "accuracy": 0.959438172748753,
+      "phishing_precision": 0.9188321167883212,
+      "phishing_recall": 0.9902454373820012,
+      "phishing_f1": 0.9532030895047705,
+      "legitimate_false_alarm_rate": 0.06261261261261261,
+      "phishing_roc_auc": 0.9949694266324223,
+      "phishing_detected": 3147,
+      "phishing_missed": 31,
+      "legitimate_flagged": 278,
+      "legitimate_accepted": 4162
+    },
+    "Mixed gradient boosting": {
+      "rows": 7618,
+      "accuracy": 0.9665266474140194,
+      "phishing_precision": 0.9353589514447423,
+      "phishing_recall": 0.9880427942101951,
+      "phishing_f1": 0.9609793420045907,
+      "legitimate_false_alarm_rate": 0.048873873873873874,
+      "phishing_roc_auc": 0.9958626735609115,
+      "phishing_detected": 3140,
+      "phishing_missed": 38,
+      "legitimate_flagged": 217,
+      "legitimate_accepted": 4223
+    }
+  },
+  "warning": "Existing tests have been used previously; exploratory, not a fresh independent evaluation."
+}

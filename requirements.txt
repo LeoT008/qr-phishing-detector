@@ -1,0 +1,8 @@
+flask
+opencv-python
+numpy
+pandas
+joblib
+scikit-learn
+zxing-cpp==2.2.0
+xgboost==2.1.4

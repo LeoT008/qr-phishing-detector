@@ -1,0 +1,16 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+data/
+deliverables/
+
+# Keep only the models used by the web app.
+models/*
+!models/random_forest.joblib
+!models/random_forest_augmented.joblib
+!models/random_forest_domain_reproducible.joblib
+!models/mixed_source_selected.joblib
